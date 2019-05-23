@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 {
 	if (argc == 2)
 	{
-		string command = argv[1];
+		std::string command = argv[1];
 		if (command == "/?")
 		{
 			ShowHelp();
@@ -42,15 +42,28 @@ int main(int argc, char *argv[])
 	}
 
 	// TODO: WaitForMultipleObjects
-	string command = "";
+	std::string command = "";
 	while (true)
 	{
-		cin >> command;
+		std::cin >> command;
 		if (command == "exit" || command == "quit")
 		{
 			break;
 		}
 	}
+
+	int totalBalanceOfClients = 0;
+	int clientBalance = 0;
+
+	for (CBankClient client : bank->GetClients())
+	{
+		clientBalance = bank->GetClientBalance(client);
+		std::cout << "Client: " << client.GetId() << " balance: " << clientBalance << std::endl;
+		totalBalanceOfClients += clientBalance;
+	}
+
+	std::cout << "Balance of all clients: " << totalBalanceOfClients << std::endl;
+	std::cout << "Bank balance: " << bank->GetTotalBalance() << std::endl;
 
     return 0;
 }
