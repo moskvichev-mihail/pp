@@ -20,6 +20,7 @@ DWORD WINAPI CBankClient::ThreadFunction(LPVOID lpParam)
 {
 	CBankClient *client = (CBankClient*)lpParam;
 	// TODO: srand(client->m_id);
+	srand(client->m_id);
 	while (true)
 	{
 		Sleep(GetSleepDuration(client));
