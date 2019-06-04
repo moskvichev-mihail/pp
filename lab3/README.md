@@ -27,6 +27,7 @@ void SetSpinCount(int count);
 void Leave();
 
 }
+
 Данный класс должен реализовать критическую секцию с использованием одного из следующих объектов (по вариантам):
 
 2 вариант - System.Threading.Interlocked
